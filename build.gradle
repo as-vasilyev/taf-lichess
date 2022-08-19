@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'by.it-academy.alexei-vasilyev'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.testng:testng:7.1.0'
+    testImplementation 'org.testng:testng:7.6.1'
+    testImplementation 'io.rest-assured:rest-assured:5.1.1'
+    implementation 'io.github.bonigarcia:webdrivermanager:5.2.2'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.3.0'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+}
+
+test {
+    useTestNG()
+}
