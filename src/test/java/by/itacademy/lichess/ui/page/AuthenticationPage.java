@@ -12,6 +12,8 @@ public class AuthenticationPage extends BasePage {
     private WebElement buttonSubmit;
     @FindBy(xpath = "//a[@href='/signup']")
     private WebElement linkSignup;
+    @FindBy(xpath = "//p[@class='error']")
+    private WebElement messageLoginFailed;
 
     public AuthenticationPage typeUsername(String username) {
         inputUsername.sendKeys(username);
@@ -19,7 +21,7 @@ public class AuthenticationPage extends BasePage {
     }
 
     public AuthenticationPage typePassword(String password) {
-        inputUsername.sendKeys(password);
+        inputPassword.sendKeys(password);
         return this;
     }
 
@@ -28,8 +30,17 @@ public class AuthenticationPage extends BasePage {
         return this;
     }
 
+    public void waitForLoginErrorMessage(){
+        waitForVisibilityOfElement(messageLoginFailed);
+    }
+
     public AuthenticationPage linkSignupClick() {
         linkSignup.click();
         return this;
     }
+
+    public String getErrorMessageText(){
+        return messageLoginFailed.getText();
+    }
+
 }
