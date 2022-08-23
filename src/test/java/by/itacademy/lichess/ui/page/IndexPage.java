@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import java.time.Duration;
 
 public class IndexPage extends BasePage {
-    @FindBy(xpath = "//a[text()='Sign in']")
+    @FindBy(xpath = "//a[@class='signin button button-empty']")
     private WebElement buttonLogin;
     @FindBy(xpath = "//a[@id='user_tag']")
     private WebElement linkUser;
