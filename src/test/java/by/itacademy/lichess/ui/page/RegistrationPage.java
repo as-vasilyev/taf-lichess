@@ -3,22 +3,22 @@ package by.itacademy.lichess.ui.page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class RegistrationPage {
+public class RegistrationPage extends BasePage {
     @FindBy(xpath = "//input[@name='username']")
     private WebElement inputUsername;
     @FindBy(xpath = "//input[@name='password']")
     private WebElement inputPassword;
     @FindBy(xpath = "//input[@name='email']")
     private WebElement inputEmail;
-    @FindBy(xpath = "//input[@id='submit button text big']")
+    @FindBy(xpath = "//button[@class='submit button text big']")
     private WebElement buttonRegister;
-    @FindBy(xpath = "//input[@name='agreement.assistance']")
+    @FindBy(xpath = "//span[@class='form-check-input']//label[@for='form3-agreement_assistance']")
     private WebElement switchAgreementAssistance;
-    @FindBy(xpath = "//input[@name='agreement.nice']")
+    @FindBy(xpath = "//span[@class='form-check-input']//label[@for='form3-agreement_nice']")
     private WebElement switchAgreementBeNice;
-    @FindBy(xpath = "//input[@name='agreement.account']")
+    @FindBy(xpath = "//span[@class='form-check-input']//label[@for='form3-agreement_account']")
     private WebElement switchAgreementAccount;
-    @FindBy(xpath = "//input[@name='agreement.policy']")
+    @FindBy(xpath = "//span[@class='form-check-input']//label[@for='form3-agreement_policy']")
     private WebElement switchAgreementPolicy;
 
     public RegistrationPage typeUsername(String username) {
@@ -36,19 +36,19 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage swipeSwitchAgreementAssistance(){
+    public RegistrationPage swipeAcceptAgreementAssistance(){
         switchAgreementAssistance.click();
         return this;
     }
-    public RegistrationPage swipeSwitchAgreementBeNice(){
+    public RegistrationPage swipeAcceptAgreementBeNice(){
         switchAgreementBeNice.click();
         return this;
     }
-    public RegistrationPage swipeSwitchAgreementAccount(){
+    public RegistrationPage swipeAcceptAgreementAccount(){
         switchAgreementAccount.click();
         return this;
     }
-    public RegistrationPage swipeSwitchAgreementPolicy(){
+    public RegistrationPage swipeAcceptAgreementPolicy(){
         switchAgreementPolicy.click();
         return this;
     }

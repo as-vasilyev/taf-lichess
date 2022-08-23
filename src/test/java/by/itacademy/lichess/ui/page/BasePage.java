@@ -1,6 +1,7 @@
 package by.itacademy.lichess.ui.page;
 
 import by.itacademy.lichess.ui.driver.SingletonDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -16,12 +17,14 @@ public abstract class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    protected WebElement waitForVisibilityOfElement(WebElement webElement) {
-        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions
-                .visibilityOf(webElement));
+    protected WebElement waitForVisibilityOfElement(WebElement element) {
+        new WebDriverWait(driver, Duration.ofSeconds(3))
+                .until(ExpectedConditions.visibilityOf(element));
+        return element;
     }
 
-    protected WebElement waitForElementToBeClickable(WebElement webElement) {
-        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS)).until(ExpectedConditions.elementToBeClickable(webElement));
+    protected WebElement waitForVisibilityOfElement(By webElementLocator) {
+        return new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIMEOUT_SECONDS))
+                .until(ExpectedConditions.visibilityOfElementLocated(webElementLocator));
     }
 }

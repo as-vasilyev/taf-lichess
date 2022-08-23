@@ -2,10 +2,12 @@ package by.itacademy.lichess.ui.tests;
 
 import by.itacademy.lichess.ui.driver.SingletonDriver;
 import by.itacademy.lichess.ui.page.AuthenticationPage;
+import by.itacademy.lichess.ui.page.EmailCheckPage;
 import by.itacademy.lichess.ui.page.IndexPage;
 import by.itacademy.lichess.ui.page.RegistrationPage;
 import by.itacademy.lichess.ui.utils.Utils;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -35,12 +37,13 @@ public class RegistrationPageTest extends BaseTest {
         registrationPage.typeUsername(generatedUsername)
                 .typePassword(generatedPassword)
                 .typeEmail(generatedEmail)
-                .swipeSwitchAgreementAssistance()
-                .swipeSwitchAgreementBeNice()
-                .swipeSwitchAgreementAccount()
-                .swipeSwitchAgreementPolicy()
+                .swipeAcceptAgreementAssistance()
+                .swipeAcceptAgreementBeNice()
+                .swipeAcceptAgreementAccount()
+                .swipeAcceptAgreementPolicy()
                 .buttonRegisterClick();
 
-        //then
+        EmailCheckPage emailCheckPage = new EmailCheckPage();
+        Assert.assertTrue(emailCheckPage.hasDivConfirmEmailBeenShown);
     }
 }
