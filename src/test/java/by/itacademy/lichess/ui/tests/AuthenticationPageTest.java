@@ -10,9 +10,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class AuthenticationPageTest extends BaseTest {
-    private final static String URL = "https://lichess.org/";
-    private final static String USERNAME = "taf-test1";
-    private final static String PASSWORD = "taf-test11";
+
 
     @BeforeTest
     public void BeforeTest() {
@@ -35,7 +33,7 @@ public class AuthenticationPageTest extends BaseTest {
                 .typePassword(PASSWORD)
                 .buttonSubmitClick();
         IndexPage authorizedIndexPage = new IndexPage();
-        String authorizedUsername = authorizedIndexPage.waitForPageLoad()
+        String authorizedUsername = authorizedIndexPage.waitForUsernameLoad()
                 .getUsername();
 
         Assert.assertEquals(authorizedUsername, USERNAME);
