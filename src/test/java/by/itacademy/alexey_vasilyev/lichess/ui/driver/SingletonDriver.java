@@ -1,4 +1,4 @@
-package by.itacademy.lichess.ui.driver;
+package by.itacademy.alexey_vasilyev.lichess.ui.driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;

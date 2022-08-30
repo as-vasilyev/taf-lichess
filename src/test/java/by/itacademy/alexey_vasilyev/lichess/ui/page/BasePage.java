@@ -1,6 +1,6 @@
-package by.itacademy.lichess.ui.page;
+package by.itacademy.alexey_vasilyev.lichess.ui.page;
 
-import by.itacademy.lichess.ui.driver.SingletonDriver;
+import by.itacademy.alexey_vasilyev.lichess.ui.driver.SingletonDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

@@ -1,4 +1,4 @@
-package by.itacademy.lichess.ui.page;
+package by.itacademy.alexey_vasilyev.lichess.ui.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

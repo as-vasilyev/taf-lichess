@@ -1,9 +1,7 @@
-package by.itacademy.lichess.ui.tests;
+package by.itacademy.alexey_vasilyev.lichess.ui.tests;
 
-import by.itacademy.lichess.ui.driver.SingletonDriver;
-import org.openqa.selenium.WebDriver;
+import by.itacademy.alexey_vasilyev.lichess.ui.driver.SingletonDriver;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeTest;
 
 public abstract class BaseTest {
     protected final static String URL = "https://lichess.org/";

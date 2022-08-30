@@ -1,4 +1,4 @@
-package by.itacademy.lichess.ui.utils;
+package by.itacademy.alexey_vasilyev.lichess.ui.utils;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;

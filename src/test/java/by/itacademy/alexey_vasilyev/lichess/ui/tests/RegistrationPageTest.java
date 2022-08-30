@@ -1,11 +1,11 @@
-package by.itacademy.lichess.ui.tests;
+package by.itacademy.alexey_vasilyev.lichess.ui.tests;
 
-import by.itacademy.lichess.ui.driver.SingletonDriver;
-import by.itacademy.lichess.ui.page.AuthenticationPage;
-import by.itacademy.lichess.ui.page.EmailCheckPage;
-import by.itacademy.lichess.ui.page.IndexPage;
-import by.itacademy.lichess.ui.page.RegistrationPage;
-import by.itacademy.lichess.ui.utils.Utils;
+import by.itacademy.alexey_vasilyev.lichess.ui.driver.SingletonDriver;
+import by.itacademy.alexey_vasilyev.lichess.ui.page.AuthenticationPage;
+import by.itacademy.alexey_vasilyev.lichess.ui.page.IndexPage;
+import by.itacademy.alexey_vasilyev.lichess.ui.utils.Utils;
+import by.itacademy.alexey_vasilyev.lichess.ui.page.EmailCheckPage;
+import by.itacademy.alexey_vasilyev.lichess.ui.page.RegistrationPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
