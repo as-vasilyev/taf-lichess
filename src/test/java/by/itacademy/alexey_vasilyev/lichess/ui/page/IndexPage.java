@@ -43,7 +43,6 @@ public class IndexPage extends BasePage {
     private WebElement divSearchResult;
     private WebElement linkUserPage;
 
-
     public void buttonLoginClick(){
         buttonLogin.click();
     }
