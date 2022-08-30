@@ -3,6 +3,8 @@ package by.itacademy.alexey_vasilyev.lichess.ui.tests;
 import by.itacademy.alexey_vasilyev.lichess.ui.driver.SingletonDriver;
 import by.itacademy.alexey_vasilyev.lichess.ui.page.AuthenticationPage;
 import by.itacademy.alexey_vasilyev.lichess.ui.page.IndexPage;
+import by.itacademy.alexey_vasilyev.lichess.ui.steps.AuthenticationPageSteps;
+import by.itacademy.alexey_vasilyev.lichess.ui.steps.IndexPageSteps;
 import by.itacademy.alexey_vasilyev.lichess.ui.utils.Utils;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -10,8 +12,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class AuthenticationPageTest extends BaseTest {
-
-
     @BeforeTest
     public void BeforeTest() {
         WebDriver webDriver = SingletonDriver.getDriver();
@@ -19,19 +19,13 @@ public class AuthenticationPageTest extends BaseTest {
         webDriver.manage()
                 .window()
                 .maximize();
-        IndexPage unauthorizedIndexPage = new IndexPage();
-        unauthorizedIndexPage.buttonLoginClick();
+        IndexPageSteps.navigateToLoginForm();
     }
 
     @Test
     public void loginWithValidCredentialsTest(){
-        IndexPage unauthorizedIndexPage = new IndexPage();
-        unauthorizedIndexPage.buttonLoginClick();
-
         AuthenticationPage authenticationPage = new AuthenticationPage();
-        authenticationPage.typeUsername(USERNAME)
-                .typePassword(PASSWORD)
-                .buttonSubmitClick();
+        AuthenticationPageSteps.Authorize(authenticationPage, USERNAME, PASSWORD);
         IndexPage authorizedIndexPage = new IndexPage();
         String authorizedUsername = authorizedIndexPage.waitForUsernameLoad()
                 .getUsername();
@@ -43,16 +37,11 @@ public class AuthenticationPageTest extends BaseTest {
     public void loginWithInvalidCredentialsTest(){
         String generatedUsername = Utils.generateAlphanumericString();
         String generatedPassword = Utils.generateAlphanumericString();
-        String expectedErrorMessage = "Invalid username or password";
-        IndexPage indexPage = new IndexPage();
-        indexPage.buttonLoginClick();
 
         AuthenticationPage authenticationPage = new AuthenticationPage();
-        authenticationPage.typeUsername(generatedUsername)
-                .typePassword(generatedPassword)
-                .buttonSubmitClick()
-                .waitForLoginErrorMessage();
+        AuthenticationPageSteps.Authorize(authenticationPage, generatedUsername, generatedPassword);
+                authenticationPage.waitForLoginErrorMessage();
 
-        Assert.assertEquals(authenticationPage.getErrorMessageText(), expectedErrorMessage);
+        Assert.assertTrue(authenticationPage.hasErrorMessageAppeared());
     }
 }

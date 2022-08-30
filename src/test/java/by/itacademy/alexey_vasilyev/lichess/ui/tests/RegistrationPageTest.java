@@ -2,7 +2,7 @@ package by.itacademy.alexey_vasilyev.lichess.ui.tests;
 
 import by.itacademy.alexey_vasilyev.lichess.ui.driver.SingletonDriver;
 import by.itacademy.alexey_vasilyev.lichess.ui.page.AuthenticationPage;
-import by.itacademy.alexey_vasilyev.lichess.ui.page.IndexPage;
+import by.itacademy.alexey_vasilyev.lichess.ui.steps.IndexPageSteps;
 import by.itacademy.alexey_vasilyev.lichess.ui.utils.Utils;
 import by.itacademy.alexey_vasilyev.lichess.ui.page.EmailCheckPage;
 import by.itacademy.alexey_vasilyev.lichess.ui.page.RegistrationPage;
@@ -24,8 +24,7 @@ public class RegistrationPageTest extends BaseTest {
         webDriver.manage()
                 .window()
                 .maximize();
-        IndexPage unauthorizedIndexPage = new IndexPage();
-        unauthorizedIndexPage.buttonLoginClick();
+        IndexPageSteps.navigateToLoginForm();
     }
 
     @Test

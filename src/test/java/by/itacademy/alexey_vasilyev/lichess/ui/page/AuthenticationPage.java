@@ -25,22 +25,20 @@ public class AuthenticationPage extends BasePage {
         return this;
     }
 
-    public AuthenticationPage buttonSubmitClick() {
+    public void buttonSubmitClick() {
         buttonSubmit.click();
-        return this;
     }
 
     public void waitForLoginErrorMessage(){
         waitForVisibilityOfElement(messageLoginFailed);
     }
 
-    public AuthenticationPage linkSignupClick() {
+    public void linkSignupClick() {
         linkSignup.click();
-        return this;
     }
 
-    public String getErrorMessageText(){
-        return messageLoginFailed.getText();
+    public boolean hasErrorMessageAppeared(){
+        return messageLoginFailed.isDisplayed();
     }
 
 }
