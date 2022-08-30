@@ -1,6 +1,6 @@
 package by.itacademy.lichess.ui.page;
 
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -14,7 +14,7 @@ public class IndexPage extends BasePage {
     @FindBy(xpath = "//a[@id='user_tag']")
     private WebElement linkUser;
     @FindBy(xpath = "//a[@class='button button-metal config_friend']")
-    private WebElement buttonPlayWithFriend;
+    private WebElement buttonCreateGame;
     @FindBy(xpath = "//div[@class='game-setup']")
     private WebElement modalCreateGame;
     @FindBy(xpath = "//select[@id='sf_variant']")
@@ -33,13 +33,24 @@ public class IndexPage extends BasePage {
     private WebElement buttonPlayForWhiteSide;
     @FindBy(xpath = "//button[@value='black']")
     private WebElement buttonPlayForBlackSide;
+    @FindBy(xpath = "//div[@class='tabs-horiz']//span[3]")
+    private WebElement tabCorrespondenceGames;
+    @FindBy(xpath = "//div[@id='clinput']//a")
+    private WebElement linkSearchUser;
+    @FindBy(xpath = "//div[@id='clinput']//input")
+    private WebElement inputSearchUser;
+    @FindBy(xpath = "//div[@class='complete-list']")
+    private WebElement divSearchResult;
+    private WebElement linkUserPage;
+
 
     public void buttonLoginClick(){
         buttonLogin.click();
     }
 
-    public void buttonCreateGameWithFriend(){
-        buttonPlayWithFriend.click();
+    public IndexPage buttonCreateFriendGameClick(){
+        buttonCreateGame.click();
+        return this;
     }
 
     public IndexPage waitForUsernameLoad(){
@@ -73,13 +84,40 @@ public class IndexPage extends BasePage {
         return this;
     }
 
-    public IndexPage clickButtonRandomSide(){
+    public void clickButtonRandomSide(){
         buttonPlayForRandomSide.click();
-        return this;
+    }
+    public void clickButtonWhiteSide(){
+        buttonPlayForWhiteSide.click();
+    }
+    public void clickButtonBlackSide(){
+        buttonPlayForBlackSide.click();
     }
 
     public IndexPage waitForModalCreateGameLoad(){
         waitForVisibilityOfElement(modalCreateGame);
         return this;
+    }
+
+    public IndexPage linkSearchUserClick(){
+        linkSearchUser.click();
+        return this;
+    }
+
+    public IndexPage typeSearchedUserName(String username) {
+
+        waitForVisibilityOfElement(inputSearchUser);
+        inputSearchUser.clear();
+        inputSearchUser.click();
+        inputSearchUser.sendKeys(username);
+        waitForVisibilityOfElement(divSearchResult);
+        return this;
+    }
+
+    public void linkProfilePageClick(String username){
+        By xpathSearchedUserLink = By.xpath(String.format("//a[@href='/@/%s']", username));
+        linkUserPage = driver.findElement(xpathSearchedUserLink);
+        waitForVisibilityOfElement(linkUserPage);
+        linkUserPage.click();
     }
 }

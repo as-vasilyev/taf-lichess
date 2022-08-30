@@ -39,4 +39,8 @@ public abstract class BasePage {
         return new WebDriverWait(driver, WAIT_TIME)
                 .until(ExpectedConditions.visibilityOfElementLocated(webElementLocator));
     }
+
+    public void waitForPageLoad() {
+        driver.manage().timeouts().implicitlyWait(WAIT_TIME);
+    }
 }
